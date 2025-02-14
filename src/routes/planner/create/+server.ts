@@ -13,14 +13,15 @@ export const POST: RequestHandler = async ({ cookies, request }) => {
 
 	const body = await request.json();
 
-	await db.transaction(async (tsx) => {
+	await db.transaction(async (tx) => {
 		try {
-			await tsx.delete(tablesTable).where(eq(tablesTable.sessionId, sessionId));
+			await tx.delete(tablesTable).where(eq(tablesTable.sessionId, sessionId));
 
 			const tables = body.tables.map(table => ({ ...table, sessionId }));
-			await tsx.insert(tablesTable).values(tables);
-		} catch {
-			tsx.rollback();
+			await tx.insert(tablesTable).values(tables);
+		} catch (err) {
+			console.error(err);
+			tx.rollback();
 		}
 	})
 
