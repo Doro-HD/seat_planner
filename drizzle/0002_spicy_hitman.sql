@@ -1,0 +1,1 @@
+DROP INDEX `tables_human_id_unique`;

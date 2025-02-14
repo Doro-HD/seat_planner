@@ -15,6 +15,13 @@
       "when": 1739562008547,
       "tag": "0001_boring_shocker",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1739570111956,
+      "tag": "0002_spicy_hitman",
+      "breakpoints": true
     }
   ]
 }

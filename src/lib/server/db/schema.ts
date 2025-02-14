@@ -13,7 +13,7 @@ export const sessionsRelation = relations(sessionsTable, ({ many }) => {
 
 export const tablesTable = sqliteTable('tables', {
 	id: text('id').primaryKey(),
-	humanId: text('human_id').notNull().unique(),
+	humanId: text('human_id').notNull(),
 	positionX: integer('position_x').notNull(),
 	positionY: integer('position_y').notNull(),
 	sessionId: text('session_id').notNull()
